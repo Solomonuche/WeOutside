@@ -1,0 +1,29 @@
+.col {
+    height: 760px;
+    border-left: 1px solid grey;
+}
+.logo {
+    height: 50%;
+    width: 50%;
+    padding: 24px;
+}
+.nav {
+    padding: 24px;
+}
+.nav-link {
+    color: black;
+}
+.nav-link:hover {
+    background-color: #eb7207;
+}
+
+.nav-pills .nav-link {
+    margin:  10px;
+    border-radius: 50px;
+    align-items: center;
+}
+
+/* Optional: To change the active tab color */
+.nav-pills .nav-link.active {
+    background-color: orange; /* Change background color for active tab */
+}

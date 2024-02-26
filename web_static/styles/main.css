@@ -1,14 +1,13 @@
-.col {
-    height: 760px;
-    border-left: 1px solid grey;
+.container {
+    min-height: 100vh;
 }
 .logo {
     height: 50%;
     width: 50%;
     padding: 24px;
 }
-.nav {
-    padding: 24px;
+.side {
+    padding-top: 30%;
 }
 .nav-link {
     color: black;
@@ -26,4 +25,7 @@
 /* Optional: To change the active tab color */
 .nav-pills .nav-link.active {
     background-color: orange; /* Change background color for active tab */
+}
+.media {
+    margin-top: 10px;
 }

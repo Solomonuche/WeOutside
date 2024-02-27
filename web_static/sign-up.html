@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel ="stylesheet" href="styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>WeOutside</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col" >
+                <div class="sticky-top">
+                    <div class="row">
+                        <img class="img-fluid img-responsive logo" src="imgs/logo.png" alt="Logo">
+                    </div>
+                    <div class="col-md-12 align-item-center">
+                        <nav class="side nav flex-column">
+                            <a class="nav-link active bi bi-house" aria-current="page" href="#">
+                                Home
+                            </a>
+                            <a class="nav-link bi bi-box-arrow-in-right" href="#">
+                                Sign In
+                            </a>
+                            <a class="nav-link bi bi-pencil-square" href="#">
+                                Sign Up
+                            </a>
+                          </nav>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 col">
+                <form class="sign-up">
+                    <h2>Sign up</h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="email" class="form-control" placeholder="E-mail">
+                    </div>
+                    <div class="form-group mt-4">
+                        <input type="tel" class="form-control" placeholder="Phone">
+                    </div>
+                    <div class="form-group mt-4">
+                        <input type="password" class="form-control" placeholder="password">
+                    </div>
+                    <div class="form-group mt-4">
+                        <input type="password" class="form-control" placeholder="Re-type password">
+                    </div>
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="radio" name="user-type" id="user" checked>
+                        <label class="form-check-label" for="user">
+                          User
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="user-type" id="host">
+                        <label class="form-check-label" for="user">
+                          Host
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-secondary mt-3">Submit</button>
+                </form>
+            </div>
+              
+            <div class="col-md-3">
+                <div class="sticky-top">
+                    <div class="card mt-4 rounded">
+                        <h4 class="card-header">Popular events</h4>
+                        <div class="card-body">
+                            <ul class="card-text">
+                                <li>Remote Design Sprint</li>
+                                <li>Frontend Engineering Bootcamp</li>
+                                <li>Youtube Masterclass</li>
+                                <li>Lagos Beach Party</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card mt-4 rounded">
+                        <h4 class="card-header">Organiser to follow</h4>
+                        <div class="card-body">
+                            <div class="media">
+                                <img src="imgs/tn1.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
+                                <div class="media-body">
+                                    <h6 class="mt-2.5 ml-2"> Yuan wa Maform</h6>
+                                    <button type="button" class="btn btn-secondary btn-sm ml-2">Follow</button>
+                                </div>
+                            </div>
+
+                            <div class="media">
+                                <img src="imgs/tn2.jpeg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
+                                <div class="media-body">
+                                    <h6 class="mt-2.5 ml-2"> That guy</h6>
+                                    <button type="button" class="btn btn-secondary btn-sm ml-2">Follow</button>
+                                </div>
+                            </div>
+
+                            <div class="media">
+                                <img src="imgs/tn3.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
+                                <div class="media-body">
+                                    <h6 class="mt-2.5 ml-2"> The Other</h6>
+                                    <button type="button" class="btn btn-secondary btn-sm ml-2">Follow</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

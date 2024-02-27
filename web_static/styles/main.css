@@ -53,3 +53,22 @@
 .sign-up{
     padding-top: 18%;
 }
+
+footer {
+    background-color: darkorange;
+}
+
+footer a {
+    color: black;
+}
+footer img {
+    height: 50%;
+    width: 15%;
+    padding: 24px;
+}
+
+.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

@@ -29,3 +29,17 @@
 .media {
     margin-top: 10px;
 }
+
+/* event headline css */
+
+.event {
+    margin-top: 10px;
+}
+
+.event_headline {
+    color: black;
+}
+
+.event_headline:hover {
+    color: orange;
+}

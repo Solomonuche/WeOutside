@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/eventFormValidation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>WeOutside</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col">
+          <div class="sticky-top">
+            <div class="row">
+              <img
+                class="img-fluid img-responsive logo"
+                src="imgs/logo.png"
+                alt="Logo"
+              />
+            </div>
+            <div class="col-md-12 align-item-center">
+              <nav class="side nav flex-column">
+                <a
+                  class="nav-link active bi bi-house"
+                  aria-current="page"
+                  href="index.html"
+                >
+                  Home
+                </a>
+                <a class="nav-link bi bi-journal-text" href="#"> My Events </a>
+                <a class="nav-link bi bi-gear" href="#">
+                  Settings
+                </a>
+                <a
+                  class="nav-link bi bi-pencil-square bg-warning"
+                  href="#"
+                >
+                  Create Event
+                </a>
+              </nav>
+            </div>
+            <div class="media border mt-5 p-3">
+              <img
+                src="imgs/tn1.jpg"
+                alt=""
+                class="mr-3 mt-3 rounded-circle"
+                style="width: 60px"
+              />
+              <div class="media-body">
+                <h5>John Doe</h5>
+                <small><i>johndoe@gmail.com</i></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- main-->
+        <div class="col-md-6 col">
+          <div class="mt-5 pt-5">
+            <h2>Create event</h2>
+            <p>Fill the following in order to create an Event</p>
+            <form action="#" class="needs-validation" novalidate>
+              <h5>General info</h5>
+              <div class="form-group">
+                <label for="ename">Event Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ename"
+                  placeholder="Enter event name"
+                  name="ename"
+                  required
+                />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label for="bdes">Breif description:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bdes"
+                  placeholder="Enter a brief description"
+                  name="bdes"
+                  required
+                />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label for="img">Add an Event image</label>
+                <input type="file" class="form-control-file border" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please uplaod event image.</div>
+              </div>
+              <!--Event date and time-->
+              <h5>Date and time</h5>
+              <div class="form-group">
+                <label for="ename">Select event date and time</label>
+                <input type="datetime-local" class="form-control" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please event date and time.</div>
+              </div>
+
+              <!--Location-->
+              <h5>Location</h5>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="optradio"
+                    required
+                  />Physical event
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">
+                    Check this checkbox to continue.
+                  </div>
+                </label>
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="optradio"
+                    required
+                  />Online event
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">
+                    Check this checkbox to continue.
+                  </div>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="location"
+                  >Enter event venue (Physical Events Only!)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  placeholder="Enter event location"
+                  name="location"
+                />
+              </div>
+
+              <!--About event-->
+              <h5>About event</h5>
+              <div class="form-group">
+                <label for="about">Enter detailed event description</label>
+                <textarea
+                  rows="3"
+                  class="form-control"
+                  id="about"
+                  required
+                ></textarea>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please event date and time.</div>
+              </div>
+
+              <!--T & C agreement-->
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="remember"
+                    required
+                  />
+                  I agree to our privacy policy.
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">
+                    Check this checkbox to continue.
+                  </div>
+                </label>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary form-control">
+                  Publish
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="sticky-top">
+            <div class="card mt-4 rounded">
+              <h4 class="card-header">Popular events</h4>
+              <div class="card-body">
+                <ul class="card-text">
+                  <li>Remote Design Sprint</li>
+                  <li>Frontend Engineering Bootcamp</li>
+                  <li>Youtube Masterclass</li>
+                  <li>Lagos Beach Party</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card mt-4 rounded">
+              <h4 class="card-header">Organiser to follow</h4>
+              <div class="card-body">
+                <div class="media">
+                  <img
+                    src="imgs/tn1.jpg"
+                    class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic"
+                  />
+                  <div class="media-body">
+                    <h6 class="mt-2.5 ml-2">Yuan wa Maform</h6>
+                    <button type="button" class="btn btn-secondary btn-sm ml-2">
+                      Follow
+                    </button>
+                  </div>
+                </div>
+
+                <div class="media">
+                  <img
+                    src="imgs/tn2.jpeg"
+                    class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic"
+                  />
+                  <div class="media-body">
+                    <h6 class="mt-2.5 ml-2">That guy</h6>
+                    <button type="button" class="btn btn-secondary btn-sm ml-2">
+                      Follow
+                    </button>
+                  </div>
+                </div>
+
+                <div class="media">
+                  <img
+                    src="imgs/tn3.jpg"
+                    class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic"
+                  />
+                  <div class="media-body">
+                    <h6 class="mt-2.5 ml-2">The Other</h6>
+                    <button type="button" class="btn btn-secondary btn-sm ml-2">
+                      Follow
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <footer class="d-flex justify-content-around mt-3 p-3">
+        <img
+          class="img-fluid img-responsive align-self-start"
+          src="imgs/logo.png"
+          alt="Logo"
+        />
+        <div>
+          <h5>Quick links</h5>
+          <div class="foot">
+            <a href="index.html">Home</a>
+            <a href="sign-in.html">Sign In</a>
+            <a href="sign-up.html">Sign Up</a>
+          </div>
+        </div>
+        <div>
+          <h5>About</h5>
+          <div class="foot">
+            <a href="#">Who we are</a>
+            <a href="#">Contact us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Privacy policy</a>
+          </div>
+        </div>
+        <div>
+          <h5>Find us</h5>
+          <div class="d-flex justify-content-between">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

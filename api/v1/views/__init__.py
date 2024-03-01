@@ -12,7 +12,7 @@ def create_app():
     # app configuration
     app.secret_key = os.urandom(32)
     app.config['SQLALCHEMY_DATABASE_URI'] = (
-            'mysql+mysqldb://solomon:pass@localhost/weoutside_db')
+            'mysql+mysqldb://root:password@localhost/weoutside_db')
     app.config['SQLALCHEMY_ECHO'] = False
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -20,7 +20,8 @@ def create_app():
 
     with app.app_context():
         # register blueprint
-        
+        from .user_route import user_bp
+        app.register_blueprint(user_bp, url_prefix='/api/v1')
         db.create_all()
 
     return app

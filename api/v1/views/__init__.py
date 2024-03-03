@@ -24,10 +24,12 @@ def create_app():
     with app.app_context():
         # register blueprint
         from .user_route import user_bp
+        from .event_route import event_bp
         from .host_route import host_bp
 
         app.register_blueprint(user_bp, url_prefix='/api/v1')
         app.register_blueprint(host_bp, url_prefix='/api/v1')
+        app.register_blueprint(event_bp, url_prefix='/api/v1')
 
         db.create_all()
 

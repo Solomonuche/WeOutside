@@ -13,6 +13,9 @@ def create_user():
     """
     Creates a user
     """
+    if not request.json:
+        return jsonify({'error': 'Not a JSON'}), 404
+
     required = ['name', 'email', 'phone', 'password']
     for attribute in required:
         if attribute not in request.json:

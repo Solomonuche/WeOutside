@@ -12,6 +12,9 @@ def create_user():
     """
     Creates a user
     """
+    if not request.json:
+        return jsonify({'error': 'Not a JSON'}), 404
+
     required = ['name', 'email', 'phone', 'password']
     for attribute in required:
         if attribute not in request.json:
@@ -25,4 +28,4 @@ def create_user():
     user.set_password(data['password'])
     db.session.add(user)
     db.session.commit()
-    return jsonify({'Status': 'Success'}), 200
+    return user.todict(), 200

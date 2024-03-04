@@ -26,7 +26,7 @@ def create_user():
     user.set_password(data['password'])
     db.session.add(user)
     db.session.commit()
-    return jsonify(user.todict()), 200
+    return jsonify(user.todict()), 201
 
 
 @user_bp.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
@@ -77,7 +77,7 @@ def user_logout():
         """
 
         logout_user()
-        return jsonify({'Logout': 'SUCCESS'})
+        return jsonify({'Logout': 'SUCCESS'}), 200
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -96,4 +96,4 @@ def unauthorized():
     Handle authorized access
     """
 
-    return jsonify({'Login': 'Required'}), 400
+    return jsonify({'Login': 'Required'}), 401

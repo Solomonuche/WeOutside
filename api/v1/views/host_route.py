@@ -26,7 +26,7 @@ def create_host():
     host.set_password(data['password'])
     db.session.add(host)
     db.session.commit()
-    return jsonify(host.todict()), 200
+    return jsonify(host.todict()), 201
 
 
 @host_bp.route('/hosts/<host_id>', methods=['PUT'], strict_slashes=False)
@@ -103,7 +103,7 @@ def host_logout():
         """
 
         logout_user()
-        return jsonify({'Logout': 'SUCCESS'})
+        return jsonify({'Logout': 'SUCCESS'}), 200
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -122,4 +122,4 @@ def unauthorized():
     Handle authorized access
     """
 
-    return jsonify({'Login': 'Required'}), 400
+    return jsonify({'Login': 'Required'}), 401

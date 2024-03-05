@@ -1,8 +1,9 @@
-"""module suppies routes for user resource"""
+"""module suppies routes for event resource"""
 from models.event import Event
 from models.host import Host
-from . import db
+from . import db, login_manager
 from datetime import datetime
+from flask_login import current_user, login_required
 
 from flask import Blueprint, request, jsonify
 
@@ -16,7 +17,8 @@ def return_events():
     """
     events = Event.query.all()
     events_data = [event.todict() for event in events]
-    return jsonify(events_data)
+    return jsonify(events_data), 200
+
 
 @event_bp.route('/events/<event_id>', methods=['GET'], strict_slashes=False)
 def return_event(event_id):
@@ -29,7 +31,13 @@ def return_event(event_id):
     else:
         return jsonify({'error': 'Event not found'}), 404
 
-@event_bp.route('/hosts/<host_id>/events', methods=['POST'], strict_slashes=False)
+
+@event_bp.route(
+        '/hosts/<host_id>/events',
+        methods=['POST'],
+        strict_slashes=False
+        )
+@login_required
 def create_event(host_id):
     """
     creates an event
@@ -43,14 +51,16 @@ def create_event(host_id):
     required = ['name', 'city', 'date', 'time', 'venue']
     for attribute in required:
         if attribute not in data:
-            return jsonify({'error': f'Missing {attribute}'}), 404
+            return jsonify({'error': f'Missing {attribute}'}), 400
     data['host_id'] = host_id
     event = Event(**data)
     db.session.add(event)
     db.session.commit()
     return event.todict(), 201
 
+
 @event_bp.route('/events/<event_id>', methods=['PUT'], strict_slashes=False)
+@login_required
 def update_event(event_id):
     """
     Updates an event
@@ -60,15 +70,17 @@ def update_event(event_id):
         return jsonify({'error': 'Event not found'}), 404
     data = request.json
     if not data:
-        return jsonify({'error': 'Not a JSON'}), 404
+        return jsonify({'error': 'Not a JSON'}), 400
     for key, value in data.items():
         if key not in ['id', 'created_at', 'updated_at']:
             setattr(event, key, value)
     setattr(event, 'updated_at', datetime.utcnow())
     db.session.commit()
-    return event.todict(), 201
+    return event.todict(), 200
+
 
 @event_bp.route('events/<event_id>', methods=['DELETE'], strict_slashes=False)
+@login_required
 def delete_event(event_id):
     """
     deletes an event
@@ -78,4 +90,4 @@ def delete_event(event_id):
         return jsonify({'error': 'Event not found'}), 404
     db.session.delete(event)
     db.session.commit()
-    return jsonify({}), 201
+    return jsonify({}), 200

@@ -15,9 +15,14 @@ class Event(BaseModel, db.Model):
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.Time, nullable=False)
     venue = db.Column(db.String(128), nullable=False)
-    host_id = db.Column(db.String(128), db.ForeignKey('hosts.id'), nullable=False)
+    host_id = db.Column(
+            db.String(128),
+            db.ForeignKey('hosts.id'),
+            nullable=False
+            )
 
     my_review = db.relationship('Review', back_populates='my_event')
+
     def __init__(self, name, description, city, date, time, venue, host_id):
         """ Initializes Events object"""
         super().__init__()

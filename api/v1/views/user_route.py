@@ -14,13 +14,13 @@ def create_user():
     Creates a user
     """
     if not request.json:
-        return jsonify({'error': 'Not a JSON'}), 404
+        return jsonify({'error': 'Not a JSON'}), 400
 
     required = ['name', 'email', 'phone', 'password']
     for attribute in required:
         if attribute not in request.json:
             return jsonify({'error': f'Missing {attribute}'}), 400
-    
+
     data = request.json
     existing_user = User.query.filter(User.email == data['email']).first()
     if existing_user:
@@ -29,7 +29,7 @@ def create_user():
     user.set_password(data['password'])
     db.session.add(user)
     db.session.commit()
-    return jsonify(user.todict()), 200
+    return jsonify(user.todict()), 201
 
 
 @user_bp.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
@@ -75,12 +75,12 @@ def user_login():
 @user_bp.route('/users/logout', methods=['GET'], strict_slashes=False)
 @login_required
 def user_logout():
-        """
-        logout current user
-        """
+    """
+    logout current user
+    """
+    logout_user()
+    return jsonify({'Logout': 'SUCCESS'}), 200
 
-        logout_user()
-        return jsonify({'Logout': 'SUCCESS'})
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -99,4 +99,4 @@ def unauthorized():
     Handle authorized access
     """
 
-    return jsonify({'Login': 'Required'}), 400
+    return jsonify({'Login': 'Required'}), 401

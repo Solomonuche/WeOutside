@@ -14,13 +14,13 @@ def create_user():
     Creates a user
     """
     if not request.json:
-        return jsonify({'error': 'Not a JSON'}), 404
+        return jsonify({'error': 'Not a JSON'}), 400
 
     required = ['name', 'email', 'phone', 'password']
     for attribute in required:
         if attribute not in request.json:
             return jsonify({'error': f'Missing {attribute}'}), 400
-    
+
     data = request.json
     existing_user = User.query.filter(User.email == data['email']).first()
     if existing_user:
@@ -75,12 +75,11 @@ def user_login():
 @user_bp.route('/users/logout', methods=['GET'], strict_slashes=False)
 @login_required
 def user_logout():
-        """
-        logout current user
-        """
-
-        logout_user()
-        return jsonify({'Logout': 'SUCCESS'}), 200
+    """
+    logout current user
+    """
+    logout_user()
+    return jsonify({'Logout': 'SUCCESS'}), 200
 
 @login_manager.user_loader
 def load_user(user_id):

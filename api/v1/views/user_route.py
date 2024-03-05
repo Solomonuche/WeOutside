@@ -81,7 +81,6 @@ def user_logout():
     logout_user()
     return jsonify({'Logout': 'SUCCESS'}), 200
 
-
 @login_manager.user_loader
 def load_user(user_id):
     """

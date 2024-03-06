@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/eventFormValidation.js"></script>
     <title>WeOutside</title>
 </head>
 <body>
@@ -38,41 +40,51 @@
 
             </div>
             <div class="col-md-6 col">
-                <form class="sign-up">
+                <form class="sign-up" id="signUp">
                     <h2>Sign up</h2>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input type="text" class="form-control" placeholder="First Name" id="firstName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out the First Name.</div>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input type="text" class="form-control" placeholder="Last Name" id="lastName">
                         </div>
                     </div>
                     <div class="form-group mt-2">
-                        <input type="email" class="form-control" placeholder="E-mail">
+                        <input type="email" class="form-control" placeholder="E-mail" id="email" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group mt-4">
-                        <input type="tel" class="form-control" placeholder="Phone">
+                        <input type="tel" class="form-control" placeholder="Phone" id="phone" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group mt-4">
-                        <input type="password" class="form-control" placeholder="password">
+                        <input type="password" class="form-control" placeholder="password" id="password" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group mt-4">
-                        <input type="password" class="form-control" placeholder="Re-type password">
+                        <input type="password" class="form-control" placeholder="Re-type password" id="confirmPassword" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-check mt-4">
-                        <input class="form-check-input" type="radio" name="user-type" id="user" checked>
+                        <input class="form-check-input" type="radio" name="user-type" id="user" checked data-type="user">
                         <label class="form-check-label" for="user">
                           User
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="user-type" id="host">
-                        <label class="form-check-label" for="user">
+                        <input class="form-check-input" type="radio" name="user-type" id="host" data-type="host">
+                        <label class="form-check-label" for="host">
                           Host
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-secondary mt-3">Sign up</button>
+                    <button type="submit" class="btn btn-secondary mt-3" id="submit">Sign up</button>
                 </form>
             </div>
               
@@ -153,6 +165,6 @@
             </div>
         </footer>
     </div>
-
+    <script src="scripts/signUp.js"></script>
 </body>
 </html>

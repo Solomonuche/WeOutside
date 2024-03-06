@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <title>WeOutside</title>
 </head>
 <body>
@@ -38,13 +39,25 @@
 
             </div>
             <div class="col-md-6 col">
-                <form class="sign-up">
+                <form class="sign-up" id="signIn">
                     <h2>Sign In</h2>
                     <div class="form-group mt-2">
-                        <input type="email" class="form-control" placeholder="E-mail">
+                        <input type="email" class="form-control" placeholder="E-mail" id="email">
                     </div>
                     <div class="form-group mt-4">
-                        <input type="password" class="form-control" placeholder="password">
+                        <input type="password" class="form-control" placeholder="password" id="password">
+                    </div>
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="radio" name="user-type" id="user" checked data-type="user">
+                        <label class="form-check-label" for="user">
+                          User
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="user-type" id="host" data-type="host">
+                        <label class="form-check-label" for="host">
+                          Host
+                        </label>
                     </div>
                     <button type="submit" class="btn btn-secondary mt-3">Sign In</button>
                 </form>
@@ -127,6 +140,6 @@
             </div>
         </footer>
     </div>
-
+    <script src="scripts/signIn.js"></script>
 </body>
 </html>

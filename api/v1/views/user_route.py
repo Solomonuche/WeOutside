@@ -67,7 +67,7 @@ def user_login():
     user = User.query.filter(User.email == data['email']).first()
     if user and user.check_password(data['password']):
         login_user(user)
-        return jsonify({'Status': 'SUCCESS'}), 200
+        return jsonify({'user_id': user.id}), 200
     else:
         return jsonify({'Status': 'Invalid User'}), 400
 
@@ -99,3 +99,11 @@ def unauthorized():
     """
 
     return jsonify({'Login': 'Required'}), 401
+
+@user_bp.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
+def get_user(user_id):
+    """
+    Returns a dictionary representation of user
+    """
+    user = User.query.filter(User.id == user_id).first()
+    return jsonify(user.todict()), 200

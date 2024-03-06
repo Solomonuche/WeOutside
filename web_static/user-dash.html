@@ -10,7 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="scripts/index.js"></script>
     <title>WeOutside</title>
 </head>
 <body>
@@ -77,239 +80,53 @@
         <div class="tab-content">
             <div class="tab-pane container active" id="home">
                 <!--Event tab-->
-                <div class="event d-flex-column border p-3">
-                    <div class="d-flex-column">
-                        <div class="d-flex">
-                            <img src="imgs/e1.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                            <div class="d-flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <small><i>Friday. 19th feb. 2024</i></small>
+                <script id="mytemp" type="text/template">
+                    <div class="event d-flex-column border p-3">
+                        <div class="d-flex-column">
+                            <div class="d-flex">
+                                <img src="imgs/e1.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
+                                <div class="d-flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <small><i class="text-danger">{{date}} {{time}}</i></small>
+                                            
+                                        </div>
+                                        <div class="align-self-end">
+                                            <h4>
+                                                <small><i class="text-danger font-weight-bold"></i></small>
+                                            </h4>
+                                        </div>
                                         
                                     </div>
+                                    <h4><a href="event-page.html" class="event_headline font-weight-bold">{{name}}</a></h4>
                                     <div>
-                                        <h4>
-                                            <small><i class="text-danger font-weight-bold">Fee: N15,000</i></small>
-                                        </h4>
+                                        <p>{{description}}</p>
                                     </div>
-                                    
-                                </div>
-                                <h4><a href="#" class="event_headline font-weight-bold">Remote Design Sprint</a></h4>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A praesentium, provident voluptates saepe voluptate impedit quas quod corporis alias nulla voluptatum laboriosam tempore. Maiores iusto dolores autem perferendis quidem. Labore.</p>
                                 </div>
                             </div>
+                            
+                            
                         </div>
-                        
-                        
-                    </div>
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <i class="fa-regular fa-comment"></i>
-                            <span class="badge badge-light">20</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-heart"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-bookmark"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>                        
-                    </div>
-                </div>
-
-                <!--Event tab-->
-                <div class="event d-flex-column border p-3">
-                    <div class="d-flex-column">
-                        <div class="d-flex">
-                            <img src="imgs/e2.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                            <div class="d-flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <small><i>Monday. 19th feb. 2024</i></small>
-                                        
-                                    </div>
-                                    <div>
-                                        <h4>
-                                            <small><i class="text-danger font-weight-bold">Fee: N15,000</i></small>
-                                        </h4>
-                                    </div>
-                                    
-                                </div>
-                                <h4><a href="#" class="event_headline font-weight-bold">Frontend Engineering Bootcamp</a></h4>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A praesentium, provident voluptates saepe voluptate impedit quas quod corporis alias nulla voluptatum laboriosam tempore. Maiores iusto dolores autem perferendis quidem. Labore.</p>
-                                </div>
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <i class="fa-regular fa-comment"></i>
+                                <span class="badge badge-light">20</span>
                             </div>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <i class="fa-regular fa-comment"></i>
-                            <span class="badge badge-light">20</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-heart"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-bookmark"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>                        
-                    </div>
-                </div>
-
-                <!--Event tab-->
-                <div class=" event d-flex-column border p-3">
-                    <div class="d-flex-column">
-                        <div class="d-flex">
-                            <img src="imgs/e3.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                            <div class="d-flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <small><i>Friday. 19th feb. 2024</i></small>
-                                        
-                                    </div>
-                                    <div>
-                                        <h4>
-                                            <small><i class="text-danger font-weight-bold">Fee: N15,000</i></small>
-                                        </h4>
-                                    </div>
-                                    
-                                </div>
-                                <h4><a href="#" class="event_headline font-weight-bold">Youtube Masterclass</a></h4>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A praesentium, provident voluptates saepe voluptate impedit quas quod corporis alias nulla voluptatum laboriosam tempore. Maiores iusto dolores autem perferendis quidem. Labore.</p>
-                                </div>
+                            <div>
+                                <i class="fa-regular fa-heart likes"></i>
+                                <span class="badge badge-light like">256</span>
                             </div>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <i class="fa-regular fa-comment"></i>
-                            <span class="badge badge-light">20</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-heart"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-bookmark"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>                        
-                    </div>
-                </div>
-
-                <!--Event tab-->
-                <div class="event d-flex-column border p-3">
-                    <div class="d-flex-column">
-                        <div class="d-flex">
-                            <img src="imgs/e4.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                            <div class="d-flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <small><i>Friday. 19th feb. 2024</i></small>
-                                        
-                                    </div>
-                                    <div>
-                                        <h4>
-                                            <small><i class="text-danger font-weight-bold">Fee: N15,000</i></small>
-                                        </h4>
-                                    </div>
-                                    
-                                </div>
-                                <h4><a href="#" class="event_headline font-weight-bold">Lagos Beach Party</a></h4>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A praesentium, provident voluptates saepe voluptate impedit quas quod corporis alias nulla voluptatum laboriosam tempore. Maiores iusto dolores autem perferendis quidem. Labore.</p>
-                                </div>
+                            <div>
+                                <i class="fa-solid fa-share-nodes"></i>
+                                <span class="badge badge-light">256</span>
                             </div>
+                            <div>
+                                <i class="fa-regular fa-bookmark likes"></i>
+                                <span class="badge badge-light like">256</span>
+                            </div>                        
                         </div>
-                        
-                        
                     </div>
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <i class="fa-regular fa-comment"></i>
-                            <span class="badge badge-light">20</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-heart"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-bookmark"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>                        
-                    </div>
-                </div>
-
-                <!--Event tab-->
-                <div class="event d-flex-column border p-3">
-                    <div class="d-flex-column">
-                        <div class="d-flex">
-                            <img src="imgs/e5.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                            <div class="d-flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <small><i>Friday. 19th feb. 2024</i></small>
-                                        
-                                    </div>
-                                    <div>
-                                        <h4>
-                                            <small><i class="text-danger font-weight-bold">Fee: N15,000</i></small>
-                                        </h4>
-                                    </div>
-                                    
-                                </div>
-                                <h4><a href="#" class="event_headline font-weight-bold">Burna Boy Live Concert</a></h4>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A praesentium, provident voluptates saepe voluptate impedit quas quod corporis alias nulla voluptatum laboriosam tempore. Maiores iusto dolores autem perferendis quidem. Labore.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <i class="fa-regular fa-comment"></i>
-                            <span class="badge badge-light">20</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-heart"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>
-                        <div>
-                            <i class="fa-regular fa-bookmark"></i>
-                            <span class="badge badge-light">256</span>
-                        </div>                        
-                    </div>
-                </div>
+                </script>
             </div>
 
             <div class="tab-pane container fade" id="menu1">
@@ -321,44 +138,31 @@
         </div>
             </div>
             <div class="col-md-3">
+                                  
                 <div class="sticky-top">
                     <div class="card mt-4 rounded">
                         <h4 class="card-header">Popular events</h4>
                         <div class="card-body">
-                            <ul class="card-text">
-                                <li>Remote Design Sprint</li>
-                                <li>Frontend Engineering Bootcamp</li>
-                                <li>Youtube Masterclass</li>
-                                <li>Lagos Beach Party</li>
+                            <ul id="eventlist" class="card-text">
+                                <script id="sidebar_temp" type="text/template">
+                                    <li>{{name}}</li>
+                                </script>
                             </ul>
                         </div>
                     </div>
                     <div class="card mt-4 rounded">
                         <h4 class="card-header">Organiser to follow</h4>
-                        <div class="card-body">
-                            <div class="media">
-                                <img src="imgs/tn1.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
-                                <div class="media-body">
-                                    <h6 class="mt-2.5 ml-2"> Yuan wa Maform</h6>
-                                    <button type="button" class="btn btn-secondary btn-sm ml-2">Follow</button>
+                        <div id="follow_tab" class="card-body">
+                               
+                            <script id="follow_temp" type="text/template">
+                                <div class="media">
+                                    <img src="imgs/tn3.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
+                                    <div class="media-body">
+                                        <h6 class="mt-2.5 ml-2"> {{name}}</h6>
+                                        <button type="button" class="btn btn-secondary btn-sm ml-2 follow_btn">Follow</button>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="media">
-                                <img src="imgs/tn2.jpeg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
-                                <div class="media-body">
-                                    <h6 class="mt-2.5 ml-2"> That guy</h6>
-                                    <button type="button" class="btn btn-secondary btn-sm ml-2">Follow</button>
-                                </div>
-                            </div>
-
-                            <div class="media">
-                                <img src="imgs/tn3.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
-                                <div class="media-body">
-                                    <h6 class="mt-2.5 ml-2"> The Other</h6>
-                                    <button type="button" class="btn btn-secondary btn-sm ml-2">Follow</button>
-                                </div>
-                            </div>
+                            </script>
 
                         </div>
                     </div>

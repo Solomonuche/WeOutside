@@ -14,6 +14,7 @@ function signIn() {
         data: JSON.stringify(formData),
         contentType: 'application/json',
         success: function(response) {
+            localStorage.setItem(`${userType}_id`, response[`${userType}_id`]);
             window.location.href = redirectUrl;
         },
         error: function(response) {

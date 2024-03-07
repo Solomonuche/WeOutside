@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 import os
 
 db = SQLAlchemy()
@@ -11,6 +12,7 @@ login_manager = LoginManager()
 def create_app():
     """create flask app"""
     app = Flask(__name__)
+    cors = CORS(app, resources={'/*': {'origins': '*'}})
     # app configuration
     app.secret_key = os.urandom(32)
     app.config['SQLALCHEMY_DATABASE_URI'] = (

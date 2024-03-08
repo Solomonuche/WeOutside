@@ -69,7 +69,7 @@ def user_login():
         login_user(user)
         return jsonify({'user_id': user.id}), 200
     else:
-        return jsonify({'Status': 'Invalid User'}), 400
+        return jsonify({'Status': 'Wrong E-mail or Password'}), 400
 
 
 @user_bp.route('/users/logout', methods=['GET'], strict_slashes=False)

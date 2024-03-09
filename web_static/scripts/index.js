@@ -44,7 +44,7 @@ $(function () {
       $(this).text('followed');
     } else {
       $(this).text('follow');
-  }
+  };
   });
-
+  
 });

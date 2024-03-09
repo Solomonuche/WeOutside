@@ -97,7 +97,7 @@
                                         </div>
                                         
                                     </div>
-                                    <h4><a href="event-page.html" class="event_headline font-weight-bold">{{name}}</a></h4>
+                                    <h4><a href="event-page.html?eventID={{id}}" class="event_headline font-weight-bold">{{name}}</a></h4>
                                     <div>
                                         <p>{{description}}</p>
                                     </div>
@@ -144,7 +144,7 @@
                             <div class="card-body">
                                 <ul id="eventlist" class="card-text">
                                     <script id="sidebar_temp" type="text/template">
-                                        <li>{{name}}</li>
+                                        <li><a href="event-page.html?eventID={{id}}" class="event_headline">{{name}}</a></li>
                                     </script>
                                 </ul>
                             </div>

@@ -8,9 +8,6 @@ function signUp() {
         phone: $('#phone').val(),
         password: $('#password').val(),
     };
-    console.log(formData.email);
-    console.log(formData.password);
-
 
     if (formData.password !== confirmPassword) {
         alert("Passwords do not match. Please re-enter your password.");

@@ -17,13 +17,6 @@ $(function () {
     });
   };
 
-  // add event listing to home tab
-  $.get(eventUrl, function (response) {
-    let location = $('#home');
-    let template = $('#mytemp').html();
-    addEvent(response, location, template);
-  });
-
   // add event names to popular tab (top-3)
   $.get(eventUrl, function (response) {
     let location = $('#eventlist');

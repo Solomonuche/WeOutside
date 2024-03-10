@@ -14,6 +14,10 @@ $(document).ready(function(){
             $('#username').text(response.name);
             $('#eMail').text(response.email);
         }
+        ,
+        error: function () {
+            window.location.href = 'sign-in.html';
+        }
     });
     $('#signOut').on('click', function(){
         $.ajax({

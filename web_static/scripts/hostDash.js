@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    const userId = localStorage.getItem('user_id');
-    if (userId === null) {
+    const hostId = localStorage.getItem('host_id');
+    if (hostId === null) {
         window.location.href = 'sign-in.html';
     }
-    const fetchDataEndpoint = 'http://127.0.0.1:5000/api/v1/users/' + userId;
+    const fetchDataEndpoint = 'http://127.0.0.1:5000/api/v1/hosts/' + hostId;
     $.ajax({
         type: 'GET',
         url: fetchDataEndpoint,
@@ -13,8 +13,7 @@ $(document).ready(function(){
         success: function(response) {
             $('#username').text(response.name);
             $('#eMail').text(response.email);
-        }
-        ,
+        },
         error: function () {
             window.location.href = 'sign-in.html';
         }
@@ -22,18 +21,16 @@ $(document).ready(function(){
     $('#signOut').on('click', function(){
         $.ajax({
             type: 'GET',
-            url: 'http://127.0.0.1:5000/api/v1/users/logout',
+            url: 'http://127.0.0.1:5000/api/v1/hosts/logout',
             xhrFields: {
                 withCredentials: true
             },
             success: function() {
-                localStorage.removeItem('user_id');
-                window.location.href = 'index.html';
+                localStorage.removeItem('host_id');
+                window.location.href = 'sign-in.html';
             },
-            error: function(xhr, status, error) {
-                console.error('Error during logout:', error);
-                console.log(xhr);
-                console.log(status);
+            error: function () {
+                window.location.href = 'sign-in.html'
             }
         });
     });

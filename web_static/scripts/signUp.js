@@ -1,4 +1,5 @@
 function signUp() {
+    // collects form data and submit when called
     const userType = $('input[name=user-type]:checked').data('type');
     const name =  $('#firstName').val() + ' ' + $('#lastName').val();
     const confirmPassword = $('#confirmPassword').val();
@@ -8,9 +9,6 @@ function signUp() {
         phone: $('#phone').val(),
         password: $('#password').val(),
     };
-    console.log(formData.email);
-    console.log(formData.password);
-
 
     if (formData.password !== confirmPassword) {
         alert("Passwords do not match. Please re-enter your password.");
@@ -36,6 +34,7 @@ function signUp() {
 
 
 function getEndpoint(userType) {
+    // gets the necessary endpoint for the api call depending on usertype
     if (userType === 'user') {
         return 'http://127.0.0.1:5000/api/v1/users';
     } else if (userType === 'host') {

@@ -1,12 +1,12 @@
-let userId;
+let hostId;
 
-function getUserData() {
+function getHostData() {
     // makes api call to get user data and populate form.
-    userId = localStorage.getItem('user_id');
-    if (userId === null) {
+    hostId = localStorage.getItem('host_id');
+    if (hostId === null) {
         window.location.href = 'sign-in.html';
     }
-    const endPoint = 'http://127.0.0.1:5000/api/v1/users/' + userId;
+    const endPoint = 'http://127.0.0.1:5000/api/v1/hosts/' + hostId;
     $.ajax({
         type: 'GET',
         url: endPoint,
@@ -34,18 +34,18 @@ function update() {
         phone: $('#phone').val()
     };
 
-    const endPoint = 'http://127.0.0.1:5000/api/v1/users/' + userId;
+    const endPoint = 'http://127.0.0.1:5000/api/v1/hosts/' + hostId;
     $.ajax({
         type: 'PUT',
         url: endPoint,
-        data: JSON.stringify(formData),
-        contentType: 'application/json',
         xhrFields: {
             withCredentials: true
         },
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
         success: function(response) {
             alert("Success");
-            window.location.href = 'user-dash.html';
+            window.location.href = 'host-dash.html';
         },
         error: function(response) {
             alert(response.responseJSON.Status);
@@ -54,7 +54,7 @@ function update() {
     });
 }
 // runs when document is ready to populate the form
-$(document).ready(getUserData);
+$(document).ready(getHostData);
 
 $('#editProfile').submit((event) => {
     // sends api call to edit the profile

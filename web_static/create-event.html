@@ -21,6 +21,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="scripts/index.js"></script>
     <title>WeOutside</title>
   </head>
   <body>
@@ -200,61 +203,34 @@
           </div>
         </div>
         <div class="col-md-3">
+                                  
           <div class="sticky-top">
-            <div class="card mt-4 rounded">
-              <h4 class="card-header">Popular events</h4>
-              <div class="card-body">
-                <ul class="card-text">
-                  <li>Remote Design Sprint</li>
-                  <li>Frontend Engineering Bootcamp</li>
-                  <li>Youtube Masterclass</li>
-                  <li>Lagos Beach Party</li>
-                </ul>
+              <div class="card mt-4 rounded">
+                  <h4 class="card-header">Popular events</h4>
+                  <div class="card-body">
+                      <ul id="eventlist" class="card-text">
+                          <script id="sidebar_temp" type="text/template">
+                              <li><a href="event-page.html?eventID={{id}}" class="event_headline">{{name}}</a></li>
+                          </script>
+                      </ul>
+                  </div>
               </div>
-            </div>
-            <div class="card mt-4 rounded">
-              <h4 class="card-header">Organiser to follow</h4>
-              <div class="card-body">
-                <div class="media">
-                  <img
-                    src="imgs/tn1.jpg"
-                    class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic"
-                  />
-                  <div class="media-body">
-                    <h6 class="mt-2.5 ml-2">Yuan wa Maform</h6>
-                    <button type="button" class="btn btn-secondary btn-sm ml-2">
-                      Follow
-                    </button>
-                  </div>
-                </div>
+              <div class="card mt-4 rounded">
+                  <h4 class="card-header">Organiser to follow</h4>
+                  <div id="follow_tab" class="card-body">
+                         
+                      <script id="follow_temp" type="text/template">
+                          <div class="media">
+                              <img src="imgs/tn3.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
+                              <div class="media-body">
+                                  <h6 class="mt-2.5 ml-2"> {{name}}</h6>
+                                  <button type="button" class="btn btn-secondary btn-sm ml-2 follow_btn">Follow</button>
+                              </div>
+                          </div>
+                      </script>
 
-                <div class="media">
-                  <img
-                    src="imgs/tn2.jpeg"
-                    class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic"
-                  />
-                  <div class="media-body">
-                    <h6 class="mt-2.5 ml-2">That guy</h6>
-                    <button type="button" class="btn btn-secondary btn-sm ml-2">
-                      Follow
-                    </button>
                   </div>
-                </div>
-
-                <div class="media">
-                  <img
-                    src="imgs/tn3.jpg"
-                    class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic"
-                  />
-                  <div class="media-body">
-                    <h6 class="mt-2.5 ml-2">The Other</h6>
-                    <button type="button" class="btn btn-secondary btn-sm ml-2">
-                      Follow
-                    </button>
-                  </div>
-                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

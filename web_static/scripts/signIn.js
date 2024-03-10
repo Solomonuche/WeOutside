@@ -13,6 +13,9 @@ function signIn() {
         url: endPoint,
         data: JSON.stringify(formData),
         contentType: 'application/json',
+        xhrFields: {
+            withCredentials: true
+        },
         success: function(response) {
             localStorage.setItem(`${userType}_id`, response[`${userType}_id`]);
             window.location.href = redirectUrl;

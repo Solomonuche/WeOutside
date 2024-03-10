@@ -43,13 +43,13 @@
                 <a
                   class="nav-link active bi bi-house"
                   aria-current="page"
-                  href="index.html"
+                  href="host-dash.html"
                 >
                   Home
                 </a>
                 <a class="nav-link bi bi-journal-text" href="#"> My Events </a>
-                <a class="nav-link bi bi-gear" href="#">
-                  Settings
+                <a class="nav-link bi bi-gear" href="host_edit_profile.html">
+                  Edit Profile
                 </a>
                 <a
                   class="nav-link bi bi-pencil-square bg-warning"
@@ -67,8 +67,8 @@
                 style="width: 60px"
               />
               <div class="media-body">
-                <h5>John Doe</h5>
-                <small><i>johndoe@gmail.com</i></small>
+                <h5 id="username"></h5>
+                <small><i id="eMail"></i></small>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
           <div class="mt-5 pt-5">
             <h2>Create event</h2>
             <p>Fill the following in order to create an Event</p>
-            <form action="#" class="needs-validation" novalidate>
+            <form id="createEvent" class="needs-validation" novalidate>
               <h5>General info</h5>
               <div class="form-group">
                 <label for="ename">Event Name:</label>
@@ -94,66 +94,23 @@
                 <div class="invalid-feedback">Please fill out this field.</div>
               </div>
               <div class="form-group">
-                <label for="bdes">Brief description:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="bdes"
-                  placeholder="Enter a brief description"
-                  name="bdes"
-                  required
-                />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-              </div>
-              <div class="form-group">
                 <label for="img">Add an Event image</label>
-                <input type="file" class="form-control-file border" required />
+                <input type="file" class="form-control-file border"/>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please upload event image.</div>
+                <div class="invalid-feedback">Please upload event flyer.</div>
               </div>
               <!--Event date and time-->
               <h5>Date and time</h5>
               <div class="form-group">
-                <label for="ename">Select event date and time</label>
-                <input type="datetime-local" class="form-control" required />
+                <label for="dateTime"">Select event date and time</label>
+                <input type="datetime-local" class="form-control" id="dateTime" required />
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please event date and time.</div>
               </div>
 
-              <!--Location-->
-              <h5>Location</h5>
-              <div class="form-group form-check">
-                <label class="form-check-label">
-                  <input
-                    type="radio"
-                    class="form-check-input"
-                    name="optradio"
-                    required
-                  />Physical event
-                  <div class="valid-feedback">Valid.</div>
-                  <div class="invalid-feedback">
-                    Check this checkbox to continue.
-                  </div>
-                </label>
-              </div>
-              <div class="form-group form-check">
-                <label class="form-check-label">
-                  <input
-                    type="radio"
-                    class="form-check-input"
-                    name="optradio"
-                    required
-                  />Online event
-                  <div class="valid-feedback">Valid.</div>
-                  <div class="invalid-feedback">
-                    Check this checkbox to continue.
-                  </div>
-                </label>
-              </div>
               <div class="form-group">
                 <label for="location"
-                  >Enter event venue (Physical Events Only!)</label
+                  >Enter event venue</label
                 >
                 <input
                   type="text"
@@ -162,6 +119,18 @@
                   placeholder="Enter event location"
                   name="location"
                 />
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city"
+                  placeholder="Enter city"
+                  required
+                />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
               </div>
 
               <!--About event-->
@@ -176,23 +145,6 @@
                 ></textarea>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please event date and time.</div>
-              </div>
-
-              <!--T & C agreement-->
-              <div class="form-group form-check">
-                <label class="form-check-label">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="remember"
-                    required
-                  />
-                  I agree to our privacy policy.
-                  <div class="valid-feedback">Valid.</div>
-                  <div class="invalid-feedback">
-                    Check this checkbox to continue.
-                  </div>
-                </label>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary form-control">
@@ -269,5 +221,6 @@
         </div>
       </footer>
     </div>
+    <script src="scripts/create_event.js"></script>
   </body>
 </html>

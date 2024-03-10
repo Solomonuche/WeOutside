@@ -1,24 +1,29 @@
 """ App initilization"""
 from flask import Flask
-from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import os
+from .login_manager_config import login_manager
 
 db = SQLAlchemy()
-login_manager = LoginManager()
 
 
 def create_app():
     """create flask app"""
     app = Flask(__name__)
-    cors = CORS(app, resources={'/*': {'origins': '*'}})
+    cors = CORS(
+            app,
+            supports_credentials=True,
+            resources={'/*': {'origins': '*'}}
+            )
     # app configuration
     app.secret_key = os.urandom(32)
     app.config['SQLALCHEMY_DATABASE_URI'] = (
             'mysql+mysqldb://root:password@localhost/weoutside_db')
     app.config['SQLALCHEMY_ECHO'] = False
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_TYPE'] = 'filesystem'
 
     db.init_app(app)
     login_manager.init_app(app)

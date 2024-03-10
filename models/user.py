@@ -30,7 +30,10 @@ class User(BaseModel, db.Model, UserMixin):
         """
         sets a hash password
         """
-        self.password = generate_password_hash(password)
+        self.password = generate_password_hash(
+                password,
+                method='pbkdf2:sha256'
+                )
 
     def check_password(self, password):
         """

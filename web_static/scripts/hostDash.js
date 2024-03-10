@@ -13,6 +13,9 @@ $(document).ready(function(){
         success: function(response) {
             $('#username').text(response.name);
             $('#eMail').text(response.email);
+        },
+        error: function () {
+            window.location.href = 'sign-in.html';
         }
     });
     $('#signOut').on('click', function(){
@@ -24,12 +27,10 @@ $(document).ready(function(){
             },
             success: function() {
                 localStorage.removeItem('host_id');
-                window.location.href = 'index.html';
+                window.location.href = 'sign-in.html';
             },
-            error: function(xhr, status, error) {
-                console.error('Error during logout:', error);
-                console.log(xhr);
-                console.log(status);
+            error: function () {
+                window.location.href = 'sign-in.html'
             }
         });
     });

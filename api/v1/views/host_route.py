@@ -1,7 +1,7 @@
 """module suppies routes for user resource"""
 from models.host import Host
 from . import db, login_manager
-
+from datetime import datetime
 from flask import Blueprint, request, jsonify
 from flask_login import login_user, logout_user, current_user, login_required
 
@@ -17,7 +17,7 @@ def create_host():
     for attribute in required:
         if attribute not in request.json:
             return jsonify({'error': f'Missing {attribute}'}), 400
-    
+
     data = request.json
     existing_host = Host.query.filter(Host.email == data['email']).first()
     if existing_host:
@@ -30,6 +30,7 @@ def create_host():
 
 
 @host_bp.route('/hosts/<host_id>', methods=['PUT'], strict_slashes=False)
+@login_required
 def edit_host(host_id):
     """
     edit Host record
@@ -45,6 +46,7 @@ def edit_host(host_id):
         key = request.json.get(field)
         if key:
             setattr(host, field, key)
+            host.updated_at = datetime.utcnow()
     db.session.commit()
     return jsonify(host.todict()), 200
 
@@ -90,36 +92,16 @@ def host_login():
     host = Host.query.filter(Host.email == data['email']).first()
     if host and host.check_password(data['password']):
         login_user(host)
-        return jsonify({'Status': 'SUCCESS'}), 200
+        return jsonify({'host_id': host.id}), 200
     else:
-        return jsonify({'Status': 'Invalid User'}), 400
+        return jsonify({'Status': 'Wrong E-mail or Password'}), 400
 
 
 @host_bp.route('/hosts/logout', methods=['GET'], strict_slashes=False)
 @login_required
 def host_logout():
-        """
-        logout current host
-        """
-
-        logout_user()
-        return jsonify({'Logout': 'SUCCESS'}), 200
-
-@login_manager.user_loader
-def load_user(user_id):
     """
-    Check if host is logged-in on every request
+    logout current host
     """
-
-    if user_id is not None:
-        return Host.query.get(user_id)
-    return None
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    """
-    Handle authorized access
-    """
-
-    return jsonify({'Login': 'Required'}), 401
+    logout_user()
+    return jsonify({'Logout': 'SUCCESS'}), 200

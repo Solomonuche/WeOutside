@@ -1,6 +1,7 @@
 """module suppies routes for user resource"""
 from models.user import User
 from . import db, login_manager
+from datetime import datetime
 
 from flask import Blueprint, request, jsonify, session
 from flask_login import login_user, logout_user, current_user, login_required
@@ -48,6 +49,7 @@ def edit_user(user_id):
         key = request.json.get(field)
         if key:
             setattr(user, field, key)
+            user.updated_at = datetime.utcnow()
     db.session.commit()
     return jsonify(user.todict()), 200
 
@@ -81,26 +83,9 @@ def user_logout():
     logout_user()
     return jsonify({'Logout': 'SUCCESS'}), 200
 
-@login_manager.user_loader
-def load_user(user_id):
-    """
-    Check if user is logged-in on every request
-    """
-
-    if user_id is not None:
-        return User.query.get(user_id)
-    return None
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    """
-    Handle authorized access
-    """
-
-    return jsonify({'Login': 'Required'}), 401
 
 @user_bp.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
+@login_required
 def get_user(user_id):
     """
     Returns a dictionary representation of user

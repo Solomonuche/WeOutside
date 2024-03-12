@@ -1,5 +1,5 @@
 let hostId
-function createEvent() {
+function createEvent(fileName) {
     // collects form data and submit when called
     hostId = localStorage.getItem('host_id');
     if (hostId === null) {
@@ -7,6 +7,7 @@ function createEvent() {
     }
     const dateTime = $('#dateTime').val().split('T');
     const formData = {
+        image: fileName,
         name: $('#ename').val(),
         city: $('#city').val(),
         venue: $('#location').val(),
@@ -35,10 +36,44 @@ function createEvent() {
     });
 }
 
+function uploadEventImage() {
+    return new Promise((resolve, reject) => {
+        let formData = new FormData();
+        let image = $('#file')[0].files[0];
+        let url = 'http://127.0.0.1:5000/api/v1/upload';
+        formData.append('file', image);
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            xhrFields: {
+                withCredentials: true
+            },
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                let fileName = response.filename;
+                resolve(fileName);
+            },
+            error: function(xhr, status, error) {
+                reject(error);
+            }
+        });
+    });
+}
+
 $('#createEvent').submit((event) => {
     event.preventDefault();
-    createEvent();
+    uploadEventImage()
+        .then((fileName) => {
+            createEvent(fileName);
+        })
+        .catch((error) => {
+            console.error('Error uploading image:', error);
+        });
 });
+
 $(document).ready(function(){
     //populates the side nav bar
     const hostId = localStorage.getItem('host_id');

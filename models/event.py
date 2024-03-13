@@ -23,6 +23,7 @@ class Event(BaseModel, db.Model):
             )
 
     my_review = db.relationship('Review', back_populates='my_event')
+    my_host = db.relationship('Host', back_populates='my_events')
 
     def __init__(self, name, description, city, date, time, venue, host_id, image):
         """ Initializes Events object"""

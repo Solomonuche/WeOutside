@@ -77,6 +77,23 @@ def host_info(host_id):
     return jsonify(host.todict()), 200
 
 
+@host_bp.route('/hosts/<host_id>/myevents', methods=['GET'], strict_slashes=False)
+def host_events(host_id):
+    """
+    return a list of a unique host events
+    """
+    
+    host = Host.query.filter(Host.id == host_id).first()
+    if host is None:
+        return jsonify({'Status': 'Host ID doesn\'t exit'}), 404
+
+    my_event = []
+    for event in host.my_events:
+        my_event.append(event.todict())
+
+    return jsonify(my_event), 200
+
+
 @host_bp.route('/hosts/login', methods=['POST'], strict_slashes=False)
 def host_login():
     """

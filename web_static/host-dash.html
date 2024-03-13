@@ -31,7 +31,7 @@
                             <a class="nav-link active bi bi-house" aria-current="page" href="host-dash.html">
                                 Home
                             </a>
-                            <a class="nav-link bi bi-journal-text" href="#">
+                            <a class="nav-link bi bi-journal-text" data-toggle="pill" href="#menu1">
                                 My Events
                             </a>
                             <a class="nav-link bi bi-gear" href="host_edit_profile.html">
@@ -85,7 +85,7 @@
                     <div class="event d-flex-column border p-3">
                         <div class="d-flex-column">
                             <div class="d-flex">
-                                <img src="imgs/e1.jpg" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
+                                <img src="http://127.0.0.1:5000/api/v1/download/{{image}}" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
                                 <div class="d-flex-column">
                                     <div class="d-flex justify-content-between">
                                         <div>
@@ -131,7 +131,55 @@
             </div>
 
             <div class="tab-pane container fade" id="menu1">
-                <h4>Coming Soon</h4>
+                <h4>My Events</h4>
+                <!--Event tab-->
+                <script id="template" type="text/template">
+                    <div class="event d-flex-column border p-3">
+                        <div class="d-flex-column">
+                            <div class="d-flex">
+                                <img src="http://127.0.0.1:5000/api/v1/download/{{image}}" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
+                                <div class="d-flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <small><i class="text-danger">{{date}} {{time}}</i></small>
+                                            
+                                        </div>
+                                        <div class="align-self-end">
+                                            <h4>
+                                                <small><i class="text-danger font-weight-bold"></i></small>
+                                            </h4>
+                                        </div>
+                                        
+                                    </div>
+                                    <h4><a href="event-page.html?eventID={{id}}" class="event_headline font-weight-bold">{{name}}</a></h4>
+                                    <div>
+                                        <p>{{description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <i class="bi bi-chat"></i>
+                                <span class="badge badge-light">20</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-heart"></i>
+                                <span class="badge badge-light like">256</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-pencil-square"></i>
+                                <span class="badge badge-light"><button class="btn btn-outline-light btn-sm text-dark">Edit</button></span>
+                            </div>
+                            <div>
+                                <i class="bi bi-trash"></i>
+                                <span class="badge badge-light like"><button onclick="deleteEvent('{{id}}')" class="btn btn-outline-light btn-sm text-dark">Delete</button></span>
+                            </div>                        
+                        </div>
+                    </div>
+                </script>
             </div>
             <div class="tab-pane container fade" id="menu2">
                 <h4>Coming Soon</h4>

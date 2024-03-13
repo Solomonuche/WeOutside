@@ -25,7 +25,7 @@ def create_app():
     app.config['SESSION_COOKIE_HTTPONLY'] = True
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['UPLOAD_FOLDER'] = 'file_uploads/events_img'
-    app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png']
+    app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.jpeg']
 
     db.init_app(app)
     login_manager.init_app(app)

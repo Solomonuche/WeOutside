@@ -42,8 +42,7 @@ def create_event(host_id):
     """
     creates an event
     """
-    user_type = current_user.__class__.__name__
-    if user_type != "Host":
+    if current_user.id != host_id:
         return jsonify({'error': 'unauthorized'}), 400
     host = Host.query.filter(Host.id == host_id).first()
     if not host:

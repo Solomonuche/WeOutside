@@ -15,6 +15,8 @@ class Host(BaseModel, db.Model, UserMixin):
     phone = db.Column(db.String(128), nullable=False)
     password = db.Column(db.String(600), nullable=False)
 
+    my_events = db.relationship('Event', back_populates='my_host')
+
     def __init__(self, name, email, phone):
         """ class constructor"""
 

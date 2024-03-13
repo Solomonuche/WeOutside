@@ -23,6 +23,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="scripts/edit_event.js"></script>
     <script src="scripts/index.js"></script>
     <title>WeOutside</title>
   </head>
@@ -47,7 +48,7 @@
                 >
                   Home
                 </a>
-                <a class="nav-link bi bi-journal-text" href="#"> My Events </a>
+                <a class="nav-link bi bi-journal-text" data-toggle="pill" href="#menu1"> My Events </a>
                 <a class="nav-link bi bi-gear" href="host_edit_profile.html">
                   Edit Profile
                 </a>
@@ -75,83 +76,92 @@
         </div>
         <!-- main-->
         <div class="col-md-6 col">
-          <div class="mt-5 pt-5">
-            <h2>Create event</h2>
-            <p>Fill the following in order to create an Event</p>
-            <form id="createEvent" class="needs-validation" novalidate>
-              <h5>General info</h5>
-              <div class="form-group">
-                <label for="ename">Event Name:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="ename"
-                  placeholder="Enter event name"
-                  name="ename"
-                  required
-                />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-              </div>
-              <div class="form-group">
-                <label for="img">Add an Event image</label>
-                <input type="file" id="file" class="form-control-file border" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please upload event flyer.</div>
-              </div>
-              <!--Event date and time-->
-              <h5>Date and time</h5>
-              <div class="form-group">
-                <label for="dateTime"">Select event date and time</label>
-                <input type="datetime-local" class="form-control" id="dateTime" required />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please event date and time.</div>
-              </div>
-
-              <div class="form-group">
-                <label for="location"
-                  >Enter event venue</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="location"
-                  placeholder="Enter event location"
-                  name="location"
-                />
-              </div>
-              <div class="form-group">
-                <label for="city">City</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="city"
-                  placeholder="Enter city"
-                  required
-                />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-              </div>
-
-              <!--About event-->
-              <h5>About event</h5>
-              <div class="form-group">
-                <label for="about">Enter detailed event description</label>
-                <textarea
-                  rows="3"
-                  class="form-control"
-                  id="about"
-                  required
-                ></textarea>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please event date and time.</div>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary form-control">
-                  Publish
-                </button>
-              </div>
-            </form>
+          <div id="edit" class="mt-5 pt-5">
+            <h2>Edit event</h2>
+            <p>Fill the following in order to edit your Event</p>
+            <script id="editTemp" type="text/template">
+                <form id="editEvent" class="needs-validation" novalidate>
+                  <h5>General info</h5>
+                  <div class="form-group">
+                    <label for="ename">Event Name:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ename"
+                      placeholder="Enter event name"
+                      name="ename"
+                      value="{{name}}"
+                    
+                    />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="img">Add an Event image</label>
+                    <input type="file" id="file"  class="form-control-file border" value="{{image}}"/>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please upload event flyer.</div>
+                  </div>
+                  <!--Event date and time-->
+                  <h5>Date and time</h5>
+                  <div class="form-group">
+                    <label for="dateTime">Select new event date and time <span class='text-danger'>(Previous Date: {{date}} & Time: {{time}})</span></label>
+                    <input type="datetime-local" class="form-control" id="dateTime" />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please event date and time.</div>
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="location"
+                      >Enter event venue</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="location"
+                      placeholder="Enter event location"
+                      name="location"
+                      value="{{location}}"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="city"
+                      placeholder="Enter city"
+                      value="{{city}}"
+                    />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+    
+                  <!--About event-->
+                  <h5>About event</h5>
+                  <div class="form-group">
+                    <label for="about">Enter detailed event description</label>
+                    <textarea
+                      rows="3"
+                      class="form-control"
+                      id="about"
+                      
+                    > {{description}}</textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please event date and time.</div>
+                  </div>
+                  <div class="form-group">
+                    <a href='host-dash.html' class="btn btn-secondary form-control">
+                      Cancel
+                    </a>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control">
+                      Publish
+                    </button>
+                  </div>
+                </form>
+            </script>
           </div>
         </div>
         <div class="col-md-3">

@@ -7,14 +7,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel ="stylesheet" href="styles/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="scripts/eventFormValidation.js"></script>
-    <script src="scripts/index.js"></script>
+    <script src="scripts/host_navbar.js"></script>
+    <script src="scripts/sidebar.js"></script>
     <title>WeOutside</title>
 </head>
 <body>
@@ -27,11 +27,28 @@
                     </div>
                     <div class="col-md-12 align-item-center">
                         <nav class="side nav flex-column">
-                            <a class="nav-link active bi bi-house" aria-current="page" href="user-dash.html">
+                            <a class="nav-link active bi bi-house" aria-current="page" href="host-dash.html">
                                 Home
                             </a>
-                          </nav>
+                            <a class="nav-link bi bi-journal-text" data-toggle="pill" href="#menu1">
+                                My Events
+                            </a>
+                            <a class="nav-link bi bi-gear" href="#">
+                                Edit Profile
+                            </a>
+                            <a class="nav-link bi bi-pencil-square bg-warning" href="create-event.html">
+                                Create Event
+                            </a>
+                        </nav>
                     </div>
+                    <div class="media border mt-5 p-3">
+                        <img src="imgs/tn1.jpg" alt="" class="mr-3 mt-3 rounded-circle" style="width: 60px;">
+                        <div class="media-body">
+                            <h5 id="username"></h5>
+                            <small><i id="eMail"></i></small>
+                        </div>
+                    </div>
+                    <button type="button" id="signOut" class="btn btn-block btn-secondary mt-3">Sign out</button>
                 </div>
 
             </div>

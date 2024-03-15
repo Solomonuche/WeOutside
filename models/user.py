@@ -15,12 +15,15 @@ class User(BaseModel, db.Model, UserMixin):
     email = db.Column(db.String(128), nullable=False)
     phone = db.Column(db.String(128), nullable=False)
     password = db.Column(db.String(600), nullable=False)
+    image = db.Column(db.String(500), nullable=False, default='avatar.jpg')
 
     my_review = db.relationship('Review', back_populates='my_user')
 
-    def __init__(self, name, email, phone):
+    def __init__(self, name, email, phone, image=None):
         """ class constructor"""
 
+        if image:
+            self.image = image
         self.name = name
         self.email = email
         self.phone = phone

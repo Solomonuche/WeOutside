@@ -11,7 +11,7 @@ $(document).ready(function(){
             withCredentials: true
         },
         success: function(response) {
-            let imageUrl = "http://127.0.0.1:5000/api/v1/download/users/" + response.image;
+            let imageUrl = "http://127.0.0.1:5000/api/v1/download/hosts/" + response.image;
             $('#image').attr('src', imageUrl);
             $('#username').text(response.name);
             $('#eMail').text(response.email);

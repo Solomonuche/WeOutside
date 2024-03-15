@@ -30,8 +30,20 @@
                             <a class="nav-link active bi bi-house" aria-current="page" href="user-dash.html">
                                 Home
                             </a>
+                            <a class="nav-link bi bi-gear" href="user_edit_profile.html">
+                                Edit Profile
+                            </a>
+                            
                           </nav>
                     </div>
+                    <div class="media border mt-5 p-3">
+                        <img id="image" alt="" class="mr-3 mt-3 rounded-circle" style="width: 60px;">
+                        <div class="media-body">
+                            <h5 id="username"></h5>
+                            <small><i id="eMail"></i></small>
+                        </div>
+                    </div>
+                    <button type="button" id="signOut" class="btn btn-block btn-secondary mt-3">sign out</button>
                 </div>
 
             </div>
@@ -58,7 +70,13 @@
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
-                    <button type="submit" class="btn btn-secondary mt-3" id="submit">Update</button>
+                    <div class="form-group">
+                        <label for="img">Add a new profile picture</label>
+                        <input type="file" id="file"  class="form-control-file border"/>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please upload event flyer.</div>
+                      </div>
+                    <button type="submit" class="btn btn-block btn-secondary mt-3" id="submit">Update</button>
                 </form>
             </div>
             <div class="col-md-3">
@@ -187,5 +205,6 @@
             </footer>
         </div>
     <script src="scripts/user_edit_profile.js"></script>
+    <script src="scripts/userDash.js"></script>
     </body>
     </html>

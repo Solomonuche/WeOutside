@@ -72,3 +72,8 @@ footer img {
     flex-direction: column;
     justify-content: space-around;
 }
+
+/* event page css */
+.defualt {
+    display: none;
+}

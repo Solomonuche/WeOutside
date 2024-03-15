@@ -61,3 +61,20 @@ $('#editProfile').submit((event) => {
     event.preventDefault();
     update();
 })
+
+$('#signOut').on('click', function(){
+    $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1:5000/api/v1/hosts/logout',
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function() {
+            localStorage.removeItem('host_id');
+            window.location.href = 'sign-in.html';
+        },
+        error: function () {
+            window.location.href = 'sign-in.html'
+        }
+    });
+});

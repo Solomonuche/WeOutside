@@ -44,7 +44,7 @@ def edit_user(user_id):
     if user is None:
         return jsonify({'Status': 'User ID doesn\'t exit'}), 404
 
-    required = ['name', 'email', 'phone', 'password']
+    required = ['name', 'email', 'phone', 'password', 'image']
     for field in required:
         key = request.json.get(field)
         if key:

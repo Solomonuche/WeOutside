@@ -11,6 +11,7 @@ class Event(BaseModel, db.Model):
 
     name = db.Column(db.String(128), nullable=False)
     description = db.Column(db.String(500), nullable=False)
+    image = db.Column(db.String(500), nullable=False)
     city = db.Column(db.String(128), nullable=False)
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.Time, nullable=False)
@@ -22,11 +23,13 @@ class Event(BaseModel, db.Model):
             )
 
     my_review = db.relationship('Review', back_populates='my_event')
+    my_host = db.relationship('Host', back_populates='my_events')
 
-    def __init__(self, name, description, city, date, time, venue, host_id):
+    def __init__(self, name, description, city, date, time, venue, host_id, image):
         """ Initializes Events object"""
         super().__init__()
         self.name = name
+        self.image = image
         self.description = description
         self.city = city
         self.date = date

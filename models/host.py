@@ -14,10 +14,15 @@ class Host(BaseModel, db.Model, UserMixin):
     email = db.Column(db.String(128), nullable=False)
     phone = db.Column(db.String(128), nullable=False)
     password = db.Column(db.String(600), nullable=False)
+    image = db.Column(db.String(500), nullable=False, default='avatar.jpg')
 
-    def __init__(self, name, email, phone):
+    my_events = db.relationship('Event', back_populates='my_host')
+
+    def __init__(self, name, email, phone, image=None):
         """ class constructor"""
 
+        if image:
+            self.image = image
         self.name = name
         self.email = email
         self.phone = phone

@@ -7,14 +7,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel ="stylesheet" href="styles/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--form validation script-->
     <script src="scripts/eventFormValidation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-    <script src="scripts/index.js"></script>
+    <script src="scripts/sidebar.js"></script>
     <script src="scripts/event-page.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>WeOutside</title>
@@ -22,36 +21,84 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col" >
-                <div class="sticky-top">
-                    <div class="row">
-                        <img class="img-fluid img-responsive logo" src="imgs/logo.png" alt="Logo">
-                    </div>
-                    <div class="col-md-12 align-item-center">
-                        <nav class="side nav flex-column">
-                            <a class="nav-link active bi bi-house" aria-current="page" href="user-dash.html">
-                                Home
-                            </a>
-                            <a class="nav-link bi bi-journal-text" href="#">
-                                My Events
-                            </a>
-                            <a class="nav-link bi bi-bookmark" href="#">
-                                Bookmarks
-                            </a>
-                            <a class="nav-link bi bi-gear" href="#">
-                                Settings
-                            </a>
-                            
-                          </nav>
-                    </div>
-                    <div class="media border mt-5 p-3">
-                        <img src="imgs/tn2.jpeg" alt="" class="mr-3 mt-3 rounded-circle" style="width: 60px;">
-                        <div class="media-body">
-                            <h5>Mary Doe</h5>
-                            <small><i>marydoe@gmail.com</i></small>
+            <div id="navbar" class="col-md-3 col" >
+                <!-- host template-->
+                <script id="host" type="text/template">
+                    <div class="sticky-top">
+                        <div class="row">
+                            <img class="img-fluid img-responsive logo" src="imgs/logo.png" alt="Logo">
                         </div>
+                        <div class="col-md-12 align-item-center">
+                            <nav class="side nav flex-column">
+                                <a class="nav-link active bi bi-house" aria-current="page" href="host-dash.html">
+                                    Home
+                                </a>
+                                <a class="nav-link bi bi-journal-text" href="host_events.html">
+                                    My Events
+                                </a>
+                                <a class="nav-link bi bi-bookmark" href="host_edit_profile.html">
+                                    Edit Profile
+                                </a>
+                                <a class="nav-link bi bi-gear" href="create-event.html">
+                                    Create Event
+                                </a>
+                                
+                            </nav>
+                        </div>
+                        <div class="media border mt-5 p-3">
+                            <img src="http://127.0.0.1:5000/api/v1/download/hosts/{{image}}" alt="" class="mr-3 mt-3 rounded-circle" style="width: 60px;">
+                            <div class="media-body">
+                                <h5>{{name}}</h5>
+                                <small><i>{{email}}</i></small>
+                            </div>
 
+                        </div>
+                        <button type="button" id="signOut" class="btn btn-block btn-secondary mt-3">Sign out</button>
                     </div>
+                </script>
+                <!--user template-->
+                <script id="user" type="text/template">
+                    <div class="sticky-top">
+                        <div class="row">
+                            <img class="img-fluid img-responsive logo" src="imgs/logo.png" alt="Logo">
+                        </div>
+                        <div class="col-md-12 align-item-center">
+                            <nav class="side nav flex-column">
+                                <a class="nav-link active bi bi-house" aria-current="page" href="user-dash.html">
+                                    Home
+                                </a>
+                                <a class="nav-link bi bi-journal-text" href="user_edit_profile.html">
+                                    Edit Profile
+                                </a>                            
+                            </nav>
+                        </div>
+                        <div class="media border mt-5 p-3">
+                            <img src="http://127.0.0.1:5000/api/v1/download/users/{{image}}" alt="" class="mr-3 mt-3 rounded-circle" style="width: 60px;">
+                            <div class="media-body">
+                                <h5>{{name}}</h5>
+                                <small><i>{{email}}</i></small>
+                            </div>
+
+                        </div>
+                        <button type="button" id="signOut" class="btn btn-block btn-secondary mt-3">Sign out</button>
+                    </div>
+                </script>
+                <!--Default-->
+                <div class="row defualt">
+                    <img class="img-fluid img-responsive logo" src="imgs/logo.png" alt="Logo">
+                </div>
+                <div class="col-md-12 align-item-center defualt">
+                    <nav class="side nav flex-column">
+                        <a class="nav-link active bi bi-house" aria-current="page" href="#">
+                            Home
+                        </a>
+                        <a class="nav-link bi bi-box-arrow-in-right" href="sign-in.html">
+                            Sign In
+                        </a>
+                        <a class="nav-link bi bi-pencil-square" href="sign-up.html">
+                            Sign Up
+                        </a>
+                      </nav>
                 </div>
 
             </div>
@@ -79,7 +126,7 @@
                             <button type="button" class="btn-danger">Register to attend</button>
                         </div>
                         <div class="mt-3 mb-5">
-                            <img src="imgs/event.jpeg" alt="event" class="img-fluid">
+                            <img src="http://127.0.0.1:5000/api/v1/download/{{image}}" alt="event" class="img-fluid">
                         </div>
                         <h4 class="text-center">Venue: {{venue}}</h4>
                         <h4 class="text-center">City: {{city}}</h4>
@@ -215,7 +262,7 @@
                                
                             <script id="follow_temp" type="text/template">
                                 <div class="media">
-                                    <img src="imgs/tn3.jpg" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
+                                    <img src="http://127.0.0.1:5000/api/v1/download/hosts/{{image}}" class="align-self-center rounded-circle img-fluid img-thumbnail tn_pic">
                                     <div class="media-body">
                                         <h6 class="mt-2.5 ml-2"> {{name}}</h6>
                                         <button type="button" class="btn btn-secondary btn-sm ml-2 follow_btn">Follow</button>

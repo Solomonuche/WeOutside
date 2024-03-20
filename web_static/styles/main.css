@@ -45,7 +45,7 @@
 /* event headline css ends */
   
 }.tn_pic {
-    width: 10%;
+    width: 20%;
 }
 .bi{
     font-size: 1.5em;
@@ -71,4 +71,9 @@ footer img {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+/* event page css */
+.defualt {
+    display: none;
 }

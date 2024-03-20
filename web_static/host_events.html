@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <script src="scripts/index.js"></script>
+    <script src="scripts/sidebar.js"></script>
 
     <title>WeOutside</title>
 </head>
@@ -30,7 +30,7 @@
                             <a class="nav-link active bi bi-house" aria-current="page" href="host-dash.html">
                                 Home
                             </a>
-                            <a class="nav-link bi bi-journal-text" data-toggle="pill" href="#menu1">
+                            <a class="nav-link bi bi-journal-text" data-toggle="pill" href="#">
                                 My Events
                             </a>
                             <a class="nav-link bi bi-gear" href="host_edit_profile.html">
@@ -61,129 +61,57 @@
                     </div>
                     <input type="search" class="form-control rounded bg-light" placeholder="Search events">
                 </div>
-
-                <!--nav bar-->
-                <!-- Nav pills -->
-                <ul class="nav nav-pills d-flex justify-content-center">
-                    <li class="nav-item ">
-                        <a class="nav-link active" data-toggle="pill" href="#home">All</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1">My Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu2">Following</a>
-                    </li>
-                </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div class="tab-pane container active" id="home">
-                <!--Event tab-->
-                <script id="mytemp" type="text/template">
-                    <div class="event d-flex-column border p-3">
-                        <div class="d-flex-column">
-                            <div class="d-flex">
-                                <img src="http://127.0.0.1:5000/api/v1/download/{{image}}" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                                <div class="d-flex-column">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <small><i class="text-danger">{{date}} {{time}}</i></small>
+                <div id="menu1" class="pt-5 pb-3">
+                    <h4 class="pb-3">My Events</h4>
+                    <!--Event tab-->
+                    <script id="template" type="text/template">
+                        <div class="event d-flex-column border p-3">
+                            <div class="d-flex-column">
+                                <div class="d-flex">
+                                    <img src="http://127.0.0.1:5000/api/v1/download/{{image}}" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
+                                    <div class="d-flex-column">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <small><i class="text-danger">{{date}} {{time}}</i></small>
+                                                
+                                            </div>
+                                            <div class="align-self-end">
+                                                <h4>
+                                                    <small><i class="text-danger font-weight-bold"></i></small>
+                                                </h4>
+                                            </div>
                                             
                                         </div>
-                                        <div class="align-self-end">
-                                            <h4>
-                                                <small><i class="text-danger font-weight-bold"></i></small>
-                                            </h4>
-                                        </div>
-                                        
-                                    </div>
-                                    <h4><a href="event-page.html?eventID={{id}}" class="event_headline font-weight-bold">{{name}}</a></h4>
-                                    <div>
-                                        <p>{{description}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div>
-                                <i class="fa-regular fa-comment"></i>
-                                <span class="badge badge-light">20</span>
-                            </div>
-                            <div>
-                                <i class="fa-regular fa-heart likes"></i>
-                                <span class="badge badge-light like">256</span>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-share-nodes"></i>
-                                <span class="badge badge-light">256</span>
-                            </div>
-                            <div>
-                                <i class="fa-regular fa-bookmark likes"></i>
-                                <span class="badge badge-light like">256</span>
-                            </div>                        
-                        </div>
-                    </div>
-                </script>
-            </div>
-
-            <div class="tab-pane container fade" id="menu1">
-                <h4>My Events</h4>
-                <!--Event tab-->
-                <script id="template" type="text/template">
-                    <div class="event d-flex-column border p-3">
-                        <div class="d-flex-column">
-                            <div class="d-flex">
-                                <img src="http://127.0.0.1:5000/api/v1/download/{{image}}" alt="" class="img-fluid img-thumbnail align-self-start mr-3" style="width:100px;">
-                                <div class="d-flex-column">
-                                    <div class="d-flex justify-content-between">
+                                        <h4><a href="event-page.html?eventID={{id}}" class="event_headline font-weight-bold">{{name}}</a></h4>
                                         <div>
-                                            <small><i class="text-danger">{{date}} {{time}}</i></small>
-                                            
+                                            <p>{{description}}</p>
                                         </div>
-                                        <div class="align-self-end">
-                                            <h4>
-                                                <small><i class="text-danger font-weight-bold"></i></small>
-                                            </h4>
-                                        </div>
-                                        
-                                    </div>
-                                    <h4><a href="event-page.html?eventID={{id}}" class="event_headline font-weight-bold">{{name}}</a></h4>
-                                    <div>
-                                        <p>{{description}}</p>
                                     </div>
                                 </div>
+                                
+                                
                             </div>
-                            
-                            
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <i class="bi bi-chat"></i>
+                                    <span class="badge badge-light">20</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-heart"></i>
+                                    <span class="badge badge-light like">256</span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-pencil-square"></i>
+                                    <span class="badge badge-light"><a href='edit-event.html?eventID={{id}}' class="btn btn-outline-light btn-sm text-dark">Edit</a></span>
+                                </div>
+                                <div>
+                                    <i class="bi bi-trash"></i>
+                                    <span class="badge badge-light like"><button onclick="deleteEvent('{{id}}')" class="btn btn-outline-light btn-sm text-dark">Delete</button></span>
+                                </div>                        
+                            </div>
                         </div>
-                        <div class="d-flex justify-content-around">
-                            <div>
-                                <i class="bi bi-chat"></i>
-                                <span class="badge badge-light">20</span>
-                            </div>
-                            <div>
-                                <i class="bi bi-heart"></i>
-                                <span class="badge badge-light like">256</span>
-                            </div>
-                            <div>
-                                <i class="bi bi-pencil-square"></i>
-                                <span class="badge badge-light"><a href='edit-event.html?eventID={{id}}' class="btn btn-outline-light btn-sm text-dark">Edit</a></span>
-                            </div>
-                            <div>
-                                <i class="bi bi-trash"></i>
-                                <span class="badge badge-light like"><button onclick="deleteEvent('{{id}}')" class="btn btn-outline-light btn-sm text-dark">Delete</button></span>
-                            </div>                        
-                        </div>
-                    </div>
-                </script>
-            </div>
-            <div class="tab-pane container fade" id="menu2">
-                <h4>Coming Soon</h4>
-            </div>
-        </div>
+                    </script>
+                </div>
             </div>
             <div class="col-md-3">
                                   
@@ -249,6 +177,6 @@
             </div>
         </footer>
     </div>
-    <script src="scripts/hostDash.js"></script>
+    <script src="scripts/host_events.js"></script>
 </body>
 </html>

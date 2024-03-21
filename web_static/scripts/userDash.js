@@ -13,7 +13,9 @@ $(document).ready(function(){
         success: function(response) {
             let imageUrl = "http://127.0.0.1:5000/api/v1/download/users/" + response.image;
             $('#image').attr('src', imageUrl);
+            $('#nav-image').attr('src', imageUrl);
             $('#username').text(response.name);
+            $('#nav-username').text(response.name);
             $('#eMail').text(response.email);
         }
         ,

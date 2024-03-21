@@ -158,4 +158,8 @@ footer img {
     .nav-pills .nav-link.active {
         background-color: orange; /* Change background color for active tab */
     }
+    /* make the search bar fixed */
+    .search {
+        position: static;
+    }
   }

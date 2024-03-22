@@ -78,6 +78,11 @@ footer img {
     display: none;
 }
 
+/* spinner for upload progress */
+.spinner-border {
+    display: none;
+}
+
 /* mobile display */
 #mobile-dp {
     display: none;

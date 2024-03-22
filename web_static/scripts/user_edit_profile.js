@@ -52,7 +52,9 @@ function update(fileName='') {
             window.location.href = 'user-dash.html';
         },
         error: function(response) {
-            alert(response.responseJSON.Status);
+            //alert(response.responseJSON.Status);
+            $('.spinner-border').css('display', 'none');
+            alert('Error editing profile. Pls ensure you have an active internet connection and try again.');
         }
 
     });
@@ -63,6 +65,7 @@ $(document).ready(getUserData);
 $('#editProfile').submit((event) => {
     // sends api call to edit the profile
     event.preventDefault();
+    $('.spinner-border').css('display', 'inline-block');
     let image = $('#file')[0].files[0];
     if (image) {
         // // File is selected
@@ -71,7 +74,9 @@ $('#editProfile').submit((event) => {
                 update(fileName);
             })
             .catch((error) => {
-                console.error('Error uploading image:', error);
+                $('.spinner-border').css('display', 'none');
+                alert('Error uploading image. Pls ensure you have an active internet connection or image is a .jpg or .jpeg or .png file');
+                //console.error('Error uploading image:', error);
             });
     } else {
         // No file selected

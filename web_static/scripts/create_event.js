@@ -26,11 +26,14 @@ function createEvent(fileName) {
         data: JSON.stringify(formData),
         contentType: 'application/json',
         success: function(response) {
-            alert("Event Created,");
+            $('.spinner-border').css('display', 'none');
+            alert("Event Created Successfully.");
             window.location.href = 'host-dash.html';
         },
         error: function(response) {
-            console.log(response);
+            //console.log(response);
+            $('.spinner-border').css('display', 'none');
+            alert('Error creating event. Pls ensure you have an active internet connection and try again.')
         }
 
     });
@@ -65,12 +68,16 @@ function uploadEventImage() {
 
 $('#createEvent').submit((event) => {
     event.preventDefault();
+    // add a spinner to the button
+    $('.spinner-border').css('display', 'inline-block');
     uploadEventImage()
         .then((fileName) => {
             createEvent(fileName);
         })
         .catch((error) => {
-            console.error('Error uploading image:', error);
+            $('.spinner-border').css('display', 'none');
+            //console.error('Error uploading image:', error);
+            alert('Error uploading image. Pls ensure you have an active internet connection or image is a .jpg or .jpeg or .png file');
         });
 });
 

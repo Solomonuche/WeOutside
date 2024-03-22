@@ -90,6 +90,8 @@ $(document).ready(function(){
         success: function(response) {
             let imageUrl = "http://127.0.0.1:5000/api/v1/download/hosts/" + response.image;
             $('#image').attr('src', imageUrl);
+            $('#nav-image').attr('src', imageUrl);
+            $('#nav-username').text(response.name);
             $('#username').text(response.name);
             $('#eMail').text(response.email);
         },

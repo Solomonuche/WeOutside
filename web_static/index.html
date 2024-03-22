@@ -18,8 +18,50 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col" >
-                <div class="sticky-top">
+            <div id="nav" class="col-md-3" >
+                <!-- Mobile nav display -->
+                <div id="mobile-dp">
+                    <nav class="sticky-top navbar navbar-expand-md navbar-dark bg-dark">
+                      <a class="navbar-brand" href="#"><img class="img-fluid img-responsive" src="imgs/logo.png" alt="Logo" width="120" height="80"></a>
+                      
+                      <div class="">
+                        <button class="btn btn-primary mr-1">
+                            <a class="nav-linkA" href="sign-up.html">
+                                Sign Up
+                            </a>
+                        </button>
+                        <button class="btn btn-warning">
+                            <a class="nav-linkB" href="sign-in.html">
+                                Sign In
+                            </a>
+                        </button>
+                      </div>
+                    </nav>
+                    <div class="hero p-3">
+                      <h4 class="text-align-center pt-3 pb-2">Discover Your Next Adventure</h4>
+                      <ul>
+                        <li class="pt-1 pb-1"><i class="font-weight-bold">Explore a world of exciting events right at your fingertips</i></li>
+                        <li class="pt-1 pb-1"><i class="font-weight-bold">Find the perfect event to elevate your experience</i></li>
+                        <li class="pt-1 pb-1"><i class="font-weight-bold">From music festivals to art exhibitions, we have it all</i></li>
+                        <li class="pt-1 pb-1"><i class="font-weight-bold">Effortlessly browse and book your next outing</i></li>
+                        <li class="pt-1 pb-1"><i class="font-weight-bold">Join us and embark on unforgettable experiences</i></li>
+                      </ul>
+                      
+                      <button class="btn btn-block btn-primary mb-2">
+                        <a class="nav-link bi bi-pencil-square" href="sign-up.html">
+                            Get started | Sign-up
+                        </a>
+                       </button>
+                      <button class="btn btn-block btn-warning">
+                        <a class="nav-link bi bi-box-arrow-in-right" href="sign-in.html">
+                            Already got an account | Sign-in
+                        </a>
+                       </button>
+                      
+                    </div>
+                  </div>
+                <!-- desktop nav display -->
+                <div id="desktop-dp" class="sticky-top">
                     <div class="row">
                         <img class="img-fluid img-responsive logo" src="imgs/logo.png" alt="Logo">
                     </div>

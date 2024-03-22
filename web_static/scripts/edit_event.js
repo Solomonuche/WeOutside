@@ -13,6 +13,7 @@ $(function () {
     
     $('#edit').on('submit', '#editEvent', (event) => {
         event.preventDefault();
+        $('.spinner-border').css('display', 'inline-block');
         let image = $('#file')[0].files[0];
         if (image) {
             // // File is selected
@@ -21,7 +22,8 @@ $(function () {
                     editEvent(fileName);
                 })
                 .catch((error) => {
-                    console.error('Error uploading image:', error);
+                    $('.spinner-border').css('display', 'none');
+                    alert('Error uploading image. Pls ensure you have an active internet connection or image is a .jpg or .jpeg or .png file');
                 });
             // alert('image file detected')
         } else {
@@ -89,7 +91,8 @@ function editEvent(fileName='') {
             window.location.href = 'host-dash.html';
         },
         error: function(response) {
-            console.log(response);
+            $('.spinner-border').css('display', 'none');
+            alert('Error creating event. Pls ensure you have an active internet connection and try again.');
         }
 
     });

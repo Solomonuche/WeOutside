@@ -8,7 +8,7 @@ The catalog covers a wide range of indoor and outdoor activities.
 The webApp can be accessed via http://solomoncodes.tech/weoutside/
 
 ## Site
-# Landing Page
+### Landing Page
 ![test](https://github.com/Solomonuche/WeOutside/assets/24822934/0bb246ad-98dd-4020-84ae-3df6a074020a)
 
 

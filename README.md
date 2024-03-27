@@ -5,22 +5,14 @@ WeOutSide is an events catalog that aims to provide users with a comprehensive l
 The platform focuses on user reviews and experiences to hold organizers accountable.
 With reviews, users can make informed decisions about attending events based on reviews of past event.
 The catalog covers a wide range of indoor and outdoor activities.
+The webApp can be accessed via http://solomoncodes.tech/weoutside/
 
-## Team
-Solomon Nweke
+## Tech Stack
 
-Role: Frontend and Backend design and coding
-Reason: Deep understanding of both frontend and backend technologies
-Alex Sifuna
-
-Role: Frontend and Backend design and coding
-Reason: Deep understanding of both frontend and backend technologies
-
-## Technologies Used
 ### Frontend
 1. HTML
 2. CSS
-3. JavaScript
+3. JavaScript - Mustache Templates Lib
 ### Backend
 1. Flask
 2. SQLalchemy

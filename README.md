@@ -1,4 +1,4 @@
-![logo](https://github.com/Solomonuche/WeOutside/assets/24822934/f212eede-7fd7-4d66-8e38-069f05695bfd)
+# ![logo](https://github.com/Solomonuche/WeOutside/assets/24822934/f212eede-7fd7-4d66-8e38-069f05695bfd)
 
 # WeOutSide - Events Catalog
 ## Project Overview

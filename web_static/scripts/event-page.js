@@ -38,11 +38,18 @@ $(function () {
     });
   } else if (userId) {
       let userUrl = 'http://127.0.0.1:5000/api/v1/users/' + userId;
-      let template = $('#host').html();
+      let template = $('#user').html();
       let location = $('#navbar');
-      $.get(userUrl, function (response) {
-        let text = Mustache.render(template, response);
-        location.append(text);
+      $.ajax({
+        type: 'GET',
+        url: userUrl,
+        xhrFields: {
+          withCredentials: true
+        },
+        success: function(response) {
+          let text = Mustache.render(template, response);
+          location.append(text);
+        }
       });
   } else {
     $('.defualt').css("display", "block");
@@ -55,14 +62,27 @@ $(function () {
 
   });
   $('#navbar').on('click', '#signOut', function(){
+    let logoutUrl;
+
+    if (userId) {
+      logoutUrl = 'http://127.0.0.1:5000/api/v1/users/logout';
+    }
+    if (hostId) {
+      logoutUrl = 'http://127.0.0.1:5000/api/v1/hosts/logout';
+    }
     $.ajax({
         type: 'GET',
-        url: 'http://127.0.0.1:5000/api/v1/hosts/logout',
+        url: logoutUrl,
         xhrFields: {
             withCredentials: true
         },
         success: function() {
-            localStorage.removeItem('host_id');
+            if (userId) {
+              localStorage.removeItem('user_id');
+            }
+            if (hostId) {
+              localStorage.removeItem('host_id');
+            }
             window.location.href = 'sign-in.html';
         },
         error: function () {
@@ -98,6 +118,10 @@ $(function () {
   
   $('#comment-form').submit((event) => {
     event.preventDefault();
+    if (userId === null) {
+      alert('Sign in with a User account to follow Host. Don\'t have an account? Pls sign up')
+      return;
+    }
     comment();
   })
 });

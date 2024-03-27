@@ -9,6 +9,7 @@ The webApp can be accessed via http://solomoncodes.tech/weoutside/
 
 ## Tech Stack
 
+![WeOutside](https://github.com/Solomonuche/WeOutside/assets/24822934/75178134-dc9d-436e-a3d9-0da90827c913)
 ### Frontend
 1. HTML
 2. CSS

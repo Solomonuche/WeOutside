@@ -61,7 +61,7 @@ $(function () {
     addEvent(response, loc, temp, count=4);
 
   });
-  $('#navbar').on('click', '#signOut', function(){
+  $('#navbar').on('click', '.signOut', function(){
     let logoutUrl;
 
     if (userId) {

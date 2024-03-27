@@ -38,11 +38,15 @@ function addEvent(response, location, template, count = 0) {
 $(document).ready(function () {
   // function to make api calls to events and populate the Dom with event listings
   let userId = localStorage.getItem('user_id');
+  let hostUrl;
+  // check if user is sign in and return hosts user is not following
+  // else return the unsorted host list
   if (userId === null) {
-    window.location.href = 'sign-in.html';
-    return;
+    hostUrl = `http://127.0.0.1:5000/api/v1/hosts`;
+  } else {
+    hostUrl = `http://127.0.0.1:5000/api/v1/users/${userId}/notfollowings`;
   }
-  const hostUrl = `http://127.0.0.1:5000/api/v1/users/${userId}/notfollowings`; 
+
   const eventUrl = 'http://127.0.0.1:5000/api/v1/events';
   
   // add event listing to home tab
@@ -63,6 +67,10 @@ $(document).ready(function () {
   
   // follow button event
   $('#follow_tab').on('click', '.follow_btn', function () {
+    if (userId === null) {
+      alert('Sign in with a User account to follow Host. Don\'t have an account? Pls sign up')
+      return;
+    }
     const postUrl = `http://127.0.0.1:5000/api/v1/users/${userId}/followings`;
     const requestData = {
       host_id: $(this).data('host-id')

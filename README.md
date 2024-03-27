@@ -1,4 +1,4 @@
-![logo](https://github.com/Solomonuche/WeOutside/assets/24822934/f212eede-7fd7-4d66-8e38-069f05695bfd)
+![logoSmall](https://github.com/Solomonuche/WeOutside/assets/24822934/4f4934bb-a321-484f-aaee-5c0a77aa587a)
 # WeOutSide - Events Catalog
 ## Project Overview
 WeOutSide is an events catalog that aims to provide users with a comprehensive listing of events happening in their town.

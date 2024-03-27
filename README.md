@@ -6,6 +6,8 @@ The platform focuses on user reviews and experiences to hold organizers accounta
 With reviews, users can make informed decisions about attending events based on reviews of past event.
 The catalog covers a wide range of indoor and outdoor activities.
 The webApp can be accessed via http://solomoncodes.tech/weoutside/
+
+
 ![test](https://github.com/Solomonuche/WeOutside/assets/24822934/0bb246ad-98dd-4020-84ae-3df6a074020a)
 
 

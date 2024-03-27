@@ -12,19 +12,19 @@ The webApp can be accessed via http://solomoncodes.tech/weoutside/
 ![test](https://github.com/Solomonuche/WeOutside/assets/24822934/0bb246ad-98dd-4020-84ae-3df6a074020a)
 
 
-## Tech Stack
+# Tech Stack
 
-![WeOutside](https://github.com/Solomonuche/WeOutside/assets/24822934/75178134-dc9d-436e-a3d9-0da90827c913)
+### ![WeOutside](https://github.com/Solomonuche/WeOutside/assets/24822934/75178134-dc9d-436e-a3d9-0da90827c913)
 ### Frontend
 1. HTML
-2. CSS
+2. CSS - bootstrap
 3. JavaScript - Mustache Templates Lib
 ### Backend
 1. Flask
 2. SQLalchemy
 3. MySQL
 
-## Alternatives Considered
+### Alternatives Considered
 1. Javascript vs Jinja2
 We chose JavaScript for the frontend as it runs natively on the client browser, reducing the load on the backend server.
 

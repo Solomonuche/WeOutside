@@ -118,8 +118,10 @@ $(function () {
   
   $('#comment-form').submit((event) => {
     event.preventDefault();
+    $('.spinner-border').css('display', 'inline-block');
     if (userId === null) {
       alert('Sign in with a User account to follow Host. Don\'t have an account? Pls sign up')
+      $('.spinner-border').css('display', 'none');
       return;
     }
     comment();

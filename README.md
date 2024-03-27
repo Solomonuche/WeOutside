@@ -1,8 +1,10 @@
-# ![logo](https://github.com/Solomonuche/WeOutside/assets/24822934/f212eede-7fd7-4d66-8e38-069f05695bfd)
-
+![logo](https://github.com/Solomonuche/WeOutside/assets/24822934/f212eede-7fd7-4d66-8e38-069f05695bfd)
 # WeOutSide - Events Catalog
 ## Project Overview
-WeOutSide is an events catalog that aims to provide users with a comprehensive listing of events happening in their town. The platform focuses on user reviews and experiences to hold organizers accountable. With a ranking system and reviews, users can make informed decisions about attending events based on ratings and geolocation activities of the event venue. The catalog covers a wide range of indoor and outdoor activities.
+WeOutSide is an events catalog that aims to provide users with a comprehensive listing of events happening in their town.
+The platform focuses on user reviews and experiences to hold organizers accountable.
+With reviews, users can make informed decisions about attending events based on reviews of past event.
+The catalog covers a wide range of indoor and outdoor activities.
 
 ## Team
 Solomon Nweke

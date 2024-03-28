@@ -91,6 +91,9 @@ def delete_event(event_id):
     event = Event.query.filter(Event.id == event_id).first()
     if not event:
         return jsonify({'error': 'Event not found'}), 404
+    if event.my_review:
+        for review in event.my_review:
+            db.session.delete(review)
     db.session.delete(event)
     db.session.commit()
     return jsonify({}), 200

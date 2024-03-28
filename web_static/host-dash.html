@@ -24,7 +24,7 @@
           <a class="navbar-brand" href="host-dash.html"><img class="img-fluid img-responsive" src="imgs/logo.png" alt="Logo" width="120" height="80"></a>
           
             <div>
-                <span id="nav-username" class="navbar-text align-self-end"></span>
+                <!-- <span id="nav-username" class="navbar-text align-self-end"></span> -->
                 <img id="nav-image" alt="" class="ml-1 mr-1 rounded-circle" style="width: 50px; height: 50px;"> 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -83,6 +83,13 @@
             <!-- main-->
             <div class="col-md-6 col">
                 <!--search bar-->
+                <div class="mobile mt-3 ml-2 mb-1 ">
+                    <i class="font-weight-bold d-block mb-2">hello, <span id="nav-username" class="navbar-text align-self-end"></span>
+                    </i>
+                    <a class="nav-linkB bi bi-pencil-square bg-warning" href="create-event.html">
+                        Create Event
+                    </a>
+                </div>
                 <div class="search sticky-top input-group mt-4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -202,12 +209,12 @@
                             </div>
                             <div>
                                 <i class="bi bi-trash"></i>
-                                <span class="badge badge-light like"><button  class="btn btn-outline-light btn-sm text-dark" data-toggle="modal" data-target="#{{id}}">Delete</button></span>
+                                <span class="badge badge-light like"><button  class="btn btn-outline-light btn-sm text-dark" data-toggle="modal" data-target="#m{{id}}">Delete</button></span>
                             </div>                        
                         </div>
                     </div>
                     <!-- Delete confirmation Modal -->
-                    <div class="modal fade" id="{{id}}">
+                    <div class="modal fade" id="m{{id}}">
                         <div class="modal-dialog">
                             <div class="modal-content">
                             

@@ -15,7 +15,7 @@ $(document).ready(function(){
             $('#image').attr('src', imageUrl);
             $('#nav-image').attr('src', imageUrl);
             $('#username').text(response.name);
-            $('#nav-username').text(response.name);
+            // $('#nav-username').text(response.name);
             $('#eMail').text(response.email);
         }
         ,

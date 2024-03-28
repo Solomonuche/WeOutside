@@ -88,9 +88,17 @@ footer img {
     display: none;
 }
 
+.mobile {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #mobile-dp {
+        display: block;
+    }
+
+    .mobile {
         display: block;
     }
 
